@@ -1,4 +1,13 @@
+# Program cari tahun
+# Program mencari gadget berdasarkan tahun
+
+# Fungsi/Prosedur
 def cari_tahun():
+# I.S. belum ada input tahun untuk mencari gadget
+# F.S. hasil pencarian telah ditemukan
+    
+# ALGORITMA
+    # Membuka file dan memisahkan file menjadi baris
     f =  open("gadget.csv", "r")
     gadget = f.readlines()
     f.close()
@@ -11,18 +20,9 @@ def cari_tahun():
     print("Hasil pencarian:")
     print()
 
-    # Mengubah tanda petik dan enter pada list
+    # Menghilangkan tanda petik dan enter pada file
     old_lines = [raw_line.replace('"', "") for raw_line in gadget]
     lines = [raw_line.replace("\n", "") for raw_line in old_lines]
-
-    # Fungsi untuk mengkonversi array menjadi value sebenarnya
-    def convertArray(array):
-        arr = array[:]
-        for i in range(6):
-            # Untuk kolom indeks ke-5 value sebenarnya adalah integer
-            if(i == 5):
-                arr[i] = int(arr[i])
-        return(arr)
 
     # Mengkonversi baris pada list menjadi array
     data = []
@@ -95,3 +95,15 @@ def cari_tahun():
                     print()
     else:
         print("Tidak ada gadget yang ditemukan")
+
+# Fungsi/Prosedur
+def convertArray(array):
+# Fungsi untuk mengkonversi array menjadi value sebenarnya
+    
+# ALGORITMA FUNGSI
+    arr = array[:]
+    for i in range(6):
+        # Untuk kolom tahun ditemukan (indeks ke-5) value sebenarnya adalah integer, bukan string
+        if(i == 5):
+            arr[i] = int(arr[i])
+    return(arr)
