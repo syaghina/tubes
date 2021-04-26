@@ -42,6 +42,7 @@ def cari_tahun():
         array = [data.strip() for data in new_file]
         hasil = convertArray(array)
         data.append(hasil)
+        # Membuat list berisi data tahun ditemukan
         data_tahun.append(hasil[5])
 
     # Memvalidasi input
